@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <div >
   <div id="t-container">
     <img id="title" src="./img/body-text.svg" alt="BODY TEXT" />
@@ -6,7 +7,10 @@
     <img id="image" src="./img/IMG_8301.jpg" />
   </div>
   <div id="w-container">
-    <img id="when" src="./img/where-when.svg" alt="january 15–february 7, 2020; wiesner gallery" />
+    <!-- <img id="when" src="./img/where-when.svg" alt="january 15–february 7, 2020; wiesner gallery" /> -->
+    <p>january 15–february 7, 2020</p>
+    <p>wiesner gallery</p>
+    <p>opening reception on january 22 at 6pm</p>
   </div>
 </div>
 
@@ -23,6 +27,7 @@
   img {
     max-width: 100%;
     max-height: 100%;
+    user-select: none;
   }
   #t-container {
     position: fixed;
@@ -41,7 +46,15 @@
   #w-container {
     position: fixed;
     bottom: 0;
-    width: 50vw;
+    font-family: Arial, sans-serif;
+    font-size: 72px;
+    line-height: 1.1;
+  }
+  #w-container p {
+    margin: 16px auto;
+  }
+  #w-container p:last-child {
+    margin-bottom: 0;
   }
 
 </style>
