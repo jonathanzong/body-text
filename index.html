@@ -11,6 +11,11 @@
     <p>january 15–february 7, 2020</p>
     <p>wiesner gallery</p>
     <p>opening reception on january 22 at 6pm</p>
+    <br/>
+    <p>BODY TEXT is reading as gazing as reading as writing; is a contest of control; is an imperfect way of rendering people and systems legible to each other.</p>
+  </div>
+  <div id="down-arrow">
+    ↓
   </div>
 </div>
 
@@ -35,7 +40,7 @@
     width: 100vw;
   }
   #i-container {
-    position: absolute;
+    position: fixed;
     top: 120px;
     left: 50%;
     transform: translateX(-50%);
@@ -44,8 +49,8 @@
     height: 70vh;
   }
   #w-container {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    top: 70vh;
     font-family: Arial, sans-serif;
     font-size: 72px;
     line-height: 1.1;
@@ -56,7 +61,13 @@
   #w-container p:last-child {
     margin-bottom: 0;
   }
-
+  #down-arrow {
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    font-weight: bold;
+    font-size: 144px;
+  }
 </style>
 
 <script>
@@ -78,6 +89,26 @@
 
   document.getElementById("title").onmouseleave = () => {
     document.getElementById("title").src = "./img/body-text.svg";
+  }
+
+  window.addEventListener("scroll", () => {
+    document.getElementById("down-arrow").style.display = 'none';
+  });
+
+  function scrollTo(element, to, duration) {
+    if (duration <= 0) return;
+    var difference = to - element.scrollTop;
+    var perTick = difference / duration * 10;
+
+    setTimeout(function() {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === to) return;
+        scrollTo(element, to, duration - 10);
+    }, 10);
+  }
+
+  document.getElementById("down-arrow").onclick = () => {
+    scrollTo(document.body, 250, 500);
   }
 
 </script>
