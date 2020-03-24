@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<div >
+<div>
   <div id="t-container">
     <img id="title" src="./img/body-text.svg" alt="BODY TEXT" />
   </div>
@@ -21,27 +21,41 @@
     <img id="image" src="./img/photos/IMG_9358.jpg" />
     <img id="image" src="./img/photos/IMG_20200124_225139.jpg" />
     <img id="image" src="./img/photos/IMG_20200122_181416.jpg" />
+
   </div>
+  <div id="foot">an exhibition by <a href="http://www.jonathanzong.com">jonathan zong</a></div>
   <div id="w-container">
     <!-- <img id="when" src="./img/where-when.svg" alt="january 15–february 7, 2020; wiesner gallery" /> -->
-    <p>january 15–february 27, 2020</p>
-    <p>wiesner gallery, mit w20 2nd floor</p>
-    <p>opening reception on january 22 at 6pm</p>
-    <br/>
-    <p>BODY TEXT is reading as gazing as reading as writing; is a contest of control; is an imperfect way of rendering people and systems legible to each other.</p>
-    <br/>
-    <p>exhibition catalogue: <a href="http://jonathanzong.com/assets/body-text-catalogue.pdf">body-text-catalogue.pdf</a></p>
-    <p>review: <a href="https://thetech.com/2020/03/05/body-text-review">Bezos, Bodies, and Backprop</a></p>
-    <br/>
-    <p>the face and the hands</p>
-    <p>reading and writing</p>
-    <p>gazing and observing</p>
-    <p>(il)legibility and control</p>
-    <p>technique and technicity</p>
-    <p>visuality and temporality</p>
-    <p>archives and curation</p>
-    <p>bodies and identity</p>
-    <p>contestation and mediation</p>
+    <div class="p-group">
+      <p>january 15–february 27, 2020</p>
+      <p>wiesner gallery, mit w20 2nd floor</p>
+      <p>opening reception on january 22 at 6pm</p>
+    </div>
+    <div class="p-group">
+      <p>BODY TEXT is reading as gazing as reading as writing; is a contest of control; is an imperfect way of rendering people and systems legible to each other.</p>
+    </div>
+    <div class="p-group">
+      <p>exhibition catalogue: <a href="http://jonathanzong.com/assets/body-text-catalogue.pdf">body-text-catalogue.pdf</a></p>
+      <p>review: <a href="https://thetech.com/2020/03/05/body-text-review">Bezos, Bodies, and Backprop</a></p>
+    </div>
+
+    <p class="and">the face and the hands</p>
+
+    <p class="and">reading and writing</p>
+
+    <p class="and">gazing and observing</p>
+
+    <p class="and">(il)legibility and control</p>
+
+    <p class="and">technique and technicity</p>
+
+    <p class="and">visuality and temporality</p>
+
+    <p class="and">archives and curation</p>
+
+    <p class="and">bodies and identity</p>
+
+    <p class="and">contestation and mediation</p>
 
   </div>
 </div>
@@ -53,14 +67,21 @@
   *, *:before, *:after {
     box-sizing: inherit;
   }
-  .clicked {
-    color: transparent;
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 72px;
+    line-height: 1.1;
   }
-  .clicked #title {
-    display: none;
-  }
-  .clicked a {
-    color: transparent;
+  @media (min-width: 768px) {
+    .clicked {
+      color: transparent;
+    }
+    .clicked #title {
+      visibility: hidden;
+    }
+    .clicked a {
+      color: transparent;
+    }
   }
   html, body {
     margin: 0;
@@ -80,15 +101,13 @@
     margin-bottom: 72px;
   }
   #t-container {
-    position: absolute;
-    top: 0;
     width: 100vw;
   }
   #i-container {
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    top: -120px;
+    margin: 0 auto;
+    width: 70vw;
     z-index: -1;
   }
   @media (max-width: 768px) {
@@ -100,9 +119,6 @@
   #w-container {
     position: absolute;
     top: 70vh;
-    font-family: Arial, sans-serif;
-    font-size: 72px;
-    line-height: 1.1;
   }
   #w-container p {
     margin: 16px auto;
@@ -110,12 +126,14 @@
   #w-container p:last-child {
     margin-bottom: 0;
   }
-  #down-arrow {
-    position: fixed;
-    bottom: 36px;
-    right: 36px;
-    font-weight: bold;
-    font-size: 144px;
+  .p-group {
+    margin-bottom: 2em;
+  }
+  .and {
+    margin-bottom: 4em !important;
+  }
+  #foot {
+    margin-bottom: 72px;
   }
   a {
     color: black;
