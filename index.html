@@ -4,15 +4,34 @@
     <img id="title" src="./img/body-text.svg" alt="BODY TEXT" />
   </div>
   <div id="i-container">
-    <img id="image" src="./img/IMG_8301.jpg" />
+    <img id="image" src="./img/photos/IMG_9274.png" />
+    <img id="image" src="./img/photos/gallery.jpg" />
+    <img id="image" src="./img/photos/IMG_20200121_155230.jpg" />
+    <img id="image" src="./img/photos/IMG_9284.jpg" />
+    <img id="image" src="./img/photos/IMG_20200212_181447.jpg" />
+    <img id="image" src="./img/photos/IMG_20200122_182236.jpg" />
+    <img id="image" src="./img/photos/IMG_20200122_183044_1.jpg" />
+    <img id="image" src="./img/photos/IMG_20200122_150156.jpg" />
+    <img id="image" src="./img/photos/IMG_9289.jpg" />
+    <img id="image" src="./img/photos/IMG_9322.jpg" />
+    <img id="image" src="./img/photos/receipts.jpg" />
+    <img id="image" src="./img/photos/IMG_20200212_181358.jpg" />
+    <img id="image" src="./img/photos/IMG_9351.jpg" />
+    <img id="image" src="./img/photos/IMG_9352.jpg" />
+    <img id="image" src="./img/photos/IMG_9358.jpg" />
+    <img id="image" src="./img/photos/IMG_20200124_225139.jpg" />
+    <img id="image" src="./img/photos/IMG_20200122_181416.jpg" />
   </div>
   <div id="w-container">
     <!-- <img id="when" src="./img/where-when.svg" alt="january 15–february 7, 2020; wiesner gallery" /> -->
-    <p>january 15–february 7, 2020</p>
+    <p>january 15–february 27, 2020</p>
     <p>wiesner gallery, mit w20 2nd floor</p>
     <p>opening reception on january 22 at 6pm</p>
     <br/>
     <p>BODY TEXT is reading as gazing as reading as writing; is a contest of control; is an imperfect way of rendering people and systems legible to each other.</p>
+    <br/>
+    <p>Exhibition Catalogue: <a href="http://jonathanzong.com/assets/body-text-catalogue.pdf">body-text-catalogue.pdf</a></p>
+    <p>Review: <a href="https://thetech.com/2020/03/05/body-text-review">Bezos, Bodies, and Backprop</a></p>
   </div>
   <div id="down-arrow">
     ↓
@@ -20,9 +39,25 @@
 </div>
 
 <style>
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  .clicked {
+    color: transparent;
+  }
+  .clicked #title {
+    display: none;
+  }
+  .clicked a {
+    color: transparent;
+  }
   html, body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     cursor: url('./img/pointer.png') 24 0, pointer;
     cursor: -webkit-image-set(
       url('./img/pointer.png') 1x,
@@ -33,20 +68,26 @@
     max-width: 100%;
     max-height: 100%;
     user-select: none;
+    display: block;
+    margin-bottom: 72px;
   }
   #t-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100vw;
   }
   #i-container {
-    position: fixed;
+    position: absolute;
     top: 120px;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    max-width: 100vw;
-    height: 70vh;
+  }
+  @media (max-width: 768px) {
+    #i-container {
+      width: 100vw;
+      height: auto;
+    }
   }
   #w-container {
     position: absolute;
@@ -68,19 +109,18 @@
     font-weight: bold;
     font-size: 144px;
   }
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  a:hover {
+    cursor: alias;
+  }
 </style>
 
 <script>
-
-  const src = ["IMG_8301.jpg", "IMG_8323.jpg", "IMG_8318.jpg"];
-
-  let index = (Math.random() * 3) | 0;
-
-  document.getElementById("image").src = "./img/" + src[index];
-
-  window.onclick = () => {
-    console.log('yo')
-    document.getElementById("image").src = "./img/" + src[(++index) % src.length];
+  document.body.onclick = () => {
+    document.body.classList.toggle("clicked");
   }
 
   document.getElementById("title").onmouseenter = () => {
@@ -110,5 +150,4 @@
   document.getElementById("down-arrow").onclick = () => {
     scrollTo(document.body, 250, 500);
   }
-
 </script>
