@@ -33,9 +33,6 @@
     <p>Exhibition Catalogue: <a href="http://jonathanzong.com/assets/body-text-catalogue.pdf">body-text-catalogue.pdf</a></p>
     <p>Review: <a href="https://thetech.com/2020/03/05/body-text-review">Bezos, Bodies, and Backprop</a></p>
   </div>
-  <div id="down-arrow">
-    ↓
-  </div>
 </div>
 
 <style>
@@ -129,25 +126,5 @@
 
   document.getElementById("title").onmouseleave = () => {
     document.getElementById("title").src = "./img/body-text.svg";
-  }
-
-  window.addEventListener("scroll", () => {
-    document.getElementById("down-arrow").style.display = 'none';
-  });
-
-  function scrollTo(element, to, duration) {
-    if (duration <= 0) return;
-    var difference = to - element.scrollTop;
-    var perTick = difference / duration * 10;
-
-    setTimeout(function() {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === to) return;
-        scrollTo(element, to, duration - 10);
-    }, 10);
-  }
-
-  document.getElementById("down-arrow").onclick = () => {
-    scrollTo(document.body, 250, 500);
   }
 </script>
