@@ -81,13 +81,16 @@
   }
   @media (min-width: 768px) {
     .clicked {
-      color: transparent;
+      /*z-index: -999;*/
     }
     .clicked #title {
-      visibility: hidden;
+      /*visibility: hidden;*/
     }
     .clicked a {
-      color: transparent;
+      /*color: transparent;*/
+    }
+    .clicked #i-container {
+      z-index: 1;
     }
   }
   html, body {
